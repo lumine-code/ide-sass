@@ -7,7 +7,7 @@ const resolveServer = (configuredPath, managedServer = null) =>
 const registerAdapter = () => {
   let adapter;
   const main = lumine.packages.getActivePackage("ide-sass").mainModule;
-  const disposable = main.consumeIdeClient({
+  const disposable = main.consumeIde({
     registerAdapter(registered) {
       adapter = registered;
       return { dispose() {} };
@@ -103,7 +103,7 @@ describe("ide-sass adapter", () => {
     const service = {
       registerAdapter: jasmine.createSpy("registerAdapter").and.returnValue(registration),
     };
-    const result = main.consumeIdeClient(service);
+    const result = main.consumeIde(service);
     expect(service.registerAdapter).toHaveBeenCalledTimes(1);
     expect(result).toBe(registration);
     result.dispose();

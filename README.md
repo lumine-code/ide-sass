@@ -2,7 +2,7 @@
 
 Indented Sass language-server adapter.
 
-Registers [Some Sass](https://github.com/wkillerud/some-sass) with the `ide-client` package, providing completion, validation, documentation, signature help, navigation, refactoring, colors, links, folding, and selection ranges for indented Sass.
+Registers [Some Sass](https://github.com/wkillerud/some-sass) with the `ide` package, providing completion, validation, documentation, signature help, navigation, refactoring, colors, links, folding, and selection ranges for indented Sass.
 
 ## Features
 
@@ -20,7 +20,7 @@ Registers [Some Sass](https://github.com/wkillerud/some-sass) with the `ide-clie
 
 To install `ide-sass` search for it in the Install pane of the Lumine settings, or run the command `lumine --install lumine-code/ide-sass`.
 
-Install `ide-client` first.
+Install `ide` first.
 
 ## Usage
 
@@ -30,7 +30,7 @@ One server starts lazily per project root when the first supported editor opens.
 
 ## Services
 
-- `ide-client`: consumed to register the indented Sass adapter with the editor's language-server client.
+- `ide`: consumed to register the indented Sass adapter with the editor's language-server client.
 
 ## Contributing
 
