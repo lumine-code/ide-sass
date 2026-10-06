@@ -1,5 +1,8 @@
+const { serverContext } = require("./helpers/server-context");
 const fs = require("fs");
-const { resolveServer, managedServer } = require("../lib/server");
+const { resolveServer: resolveServerWithContext, managedServer } = require("../lib/server");
+const resolveServer = (configuredPath, managedServer = null) =>
+  resolveServerWithContext(serverContext({ rootPath: __dirname, managedServer }), configuredPath);
 
 const registerAdapter = () => {
   let adapter;
@@ -32,7 +35,7 @@ describe("ide-sass server resolution", () => {
   });
 
   it("prefers a managed upgrade and preserves the configured-path override", async () => {
-    const managed = { modulePath: "/managed/sass.js", version: "9.9.9" };
+    const managed = { modulePath: (await resolveServer("")).args[0], version: "9.9.9" };
     const launch = await resolveServer("", managed);
     expect(launch.args[0]).toBe(managed.modulePath);
     expect(launch.version).toBe(managed.version);
@@ -64,7 +67,7 @@ describe("ide-sass adapter", () => {
     expect(adapter.settingsKeyPaths).toEqual(["ide-sass"]);
     expect(adapter.restartKeyPaths).toEqual(["ide-sass.serverPath"]);
     expect(adapter.managedServer.packages).toEqual(["some-sass-language-server"]);
-    const launch = await adapter.resolveServer({ rootPath: __dirname });
+    const launch = await adapter.resolveServer(serverContext({ rootPath: __dirname }));
     expect(launch.cwd).toBe(__dirname);
     expect(launch.transport).toBe("stdio");
   });
@@ -174,4 +177,12 @@ describe("ide-sass feature contracts", () => {
       expect(lumine.config.get(keyPath)).toBe(false);
     });
   }
+});
+
+describe("ide-sass shared server resolution", () => {
+  it("preserves an unavailable selection as null", async () => {
+    const { resolveServer: resolveWithContext } = require("../lib/server");
+    const resolver = { select: jasmine.createSpy("select").and.resolveTo(null) };
+    expect(await resolveWithContext({ rootPath: __dirname, resolver }, "")).toBeNull();
+  });
 });
