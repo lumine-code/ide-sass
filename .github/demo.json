@@ -1,0 +1,16 @@
+{
+  "title": "ide-sass",
+  "description": "The Sass language server reports an unknown property in an indented stylesheet.",
+  "recordedOn": "2026-10-13",
+  "sourceRevision": "08d8d7623ca6f1eb9e3bb15db85b6a7c6594b692",
+  "mode": "normal",
+  "fontSettings": "default",
+  "images": [
+    {
+      "file": "demo.png",
+      "label": "The Sass language server reports an unknown property in an indented stylesheet.",
+      "width": 1100,
+      "height": 490
+    }
+  ]
+}

@@ -16,6 +16,8 @@ Registers [Some Sass](https://github.com/wkillerud/some-sass) with the `ide` pac
 - **Document tools**: provides document and workspace symbols, import links, colors, highlights, folding, and selection ranges.
 - **Feature switches**: each editor-facing capability can be handed to another language server serving the same file.
 
+![The Sass language server reports an unknown property in an indented stylesheet.](.github/demo.png)
+
 ## Installation
 
 To install `ide-sass` search for it in the Install pane of the Lumine settings, or run the command `lumine --install lumine-code/ide-sass`.
