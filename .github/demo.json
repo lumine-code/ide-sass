@@ -1,16 +1,96 @@
 {
   "title": "ide-sass",
   "description": "The Sass language server reports an unknown property in an indented stylesheet.",
-  "recordedOn": "2026-10-13",
-  "sourceRevision": "08d8d7623ca6f1eb9e3bb15db85b6a7c6594b692",
+  "recordedOn": "2026-10-14",
+  "sourceRevision": "02a1b835b62193541c9c2185a96b7ea64275595d",
+  "themeSourceRevision": "7fbd047a87ecf1367c896b19ff270cdc28d319f7",
   "mode": "normal",
   "fontSettings": "default",
+  "scenario": "demo.js",
+  "recipeHash": "7dc3cae32f35006bfbde6d31a7c11463474476943d1951daddc0e1c652318ac0",
+  "environment": {
+    "platform": "win32",
+    "arch": "x64",
+    "electron": "44.7.0",
+    "chrome": "152.0.7977.130",
+    "devicePixelRatio": 1,
+    "locale": "en-GB",
+    "fontFamily": "Fira Code, Menlo, DejaVu Sans Mono, Consolas, monospace",
+    "fontSize": 14,
+    "themes": ["one-day-syntax", "one-day-ui"]
+  },
+  "viewport": { "width": 1100, "height": 490 },
+  "cornerRadius": 10,
+  "sources": {
+    "editor": {
+      "revision": "8be8f86075ad93df038610d82b3ac6d99329957d",
+      "dirty": false,
+      "workingTreeHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "package": {
+      "revision": "02a1b835b62193541c9c2185a96b7ea64275595d",
+      "dirty": false,
+      "workingTreeHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "ide-sass": {
+      "revision": "02a1b835b62193541c9c2185a96b7ea64275595d",
+      "dirty": false,
+      "workingTreeHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "documentation-view": {
+      "revision": "eedd6f69e19677399ddd9617858da255bb8f189c",
+      "dirty": false,
+      "workingTreeHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "hover": {
+      "revision": "4db1205d5c41405ba1d5c0d741eeaf3399e3693f",
+      "dirty": false,
+      "workingTreeHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "ide": {
+      "revision": "812c09829d25abb79f6292280d1eb54fc80b6c82",
+      "dirty": false,
+      "workingTreeHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "language-sass": {
+      "revision": "13f5fa3d73bd68e52516a53dc278fa77f26a55cd",
+      "dirty": false,
+      "workingTreeHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "linter": {
+      "revision": "adec0e9d64ffe64f9e041df825324efc0795601b",
+      "dirty": false,
+      "workingTreeHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "linter-panel": {
+      "revision": "52b4727794bf840757d2c6ec818329f954ecfb25",
+      "dirty": false,
+      "workingTreeHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "marker": {
+      "revision": "bb4fc8fec8c9d09fe59db9b0d70352ff33cde8f8",
+      "dirty": false,
+      "workingTreeHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "one-theme": {
+      "revision": "7fbd047a87ecf1367c896b19ff270cdc28d319f7",
+      "dirty": false,
+      "workingTreeHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  },
+  "fixtures": [
+    {
+      "file": "ide-sass/workspace.sass",
+      "sha256": "b5bb7e55e365e4978c02ba4deafce1c052fde2828ffd8945918629996202f049"
+    }
+  ],
   "images": [
     {
       "file": "demo.png",
       "label": "The Sass language server reports an unknown property in an indented stylesheet.",
       "width": 1100,
-      "height": 490
+      "height": 490,
+      "sha256": "fde619d304c638b4ccd04e85a8ef21d470f7ed230eb6f2aaf149942729b0aaca"
     }
   ]
 }
