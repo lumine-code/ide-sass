@@ -1,5 +1,6 @@
 const { serverContext } = require("./helpers/server-context");
 const fs = require("fs");
+const path = require("path");
 const { resolveServer: resolveServerWithContext, managedServer } = require("../lib/server");
 const resolveServer = (configuredPath, managedServer = null) =>
   resolveServerWithContext(serverContext({ rootPath: __dirname, managedServer }), configuredPath);
@@ -128,7 +129,7 @@ describe("ide-sass adapter", () => {
     expect(configSchema.completion.properties.completePropertyWithSemicolon).toBeUndefined();
   });
 
-  it("describes every setting and keeps package metadata consistent", () => {
+  it("describes every setting and ships its exact declared server version", async () => {
     const pkg = require("../package.json");
     const missing = [];
     const visit = (value, keyPath = "") => {
@@ -139,7 +140,18 @@ describe("ide-sass adapter", () => {
     visit({ properties: pkg.configSchema });
     expect(missing).toEqual([]);
     expect(pkg.description).toBe("Indented Sass language-server adapter.");
-    expect(pkg.dependencies).toEqual({ "some-sass-language-server": "2.3.8" });
+    expect(Object.keys(pkg.dependencies)).toEqual(["some-sass-language-server"]);
+    const serverVersion = pkg.dependencies["some-sass-language-server"];
+    expect(serverVersion).toMatch(/^\d+\.\d+\.\d+$/);
+    const launch = await resolveServer("");
+    const serverManifest = JSON.parse(
+      fs.readFileSync(
+        path.join(path.dirname(path.dirname(launch.args[0])), "package.json"),
+        "utf8",
+      ),
+    );
+    expect(serverManifest.name).toBe("some-sass-language-server");
+    expect(serverManifest.version).toBe(serverVersion);
     expect(pkg.keywords.some((keyword) => pkg.name.includes(keyword))).toBe(false);
   });
 });
